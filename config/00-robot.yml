@@ -1,0 +1,7 @@
+/remap_manager:
+  ros__parameters:
+    plugin/robot/robot_name: "tiago_pro"
+    plugin/robot/gaze_frame: "head_front_camera_color_optical_frame"
+    plugin/robot/presence_frame: "torso_base_link"
+  remappings:
+    /camera_info: /head_front_camera/color/camera_info

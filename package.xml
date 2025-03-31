@@ -1,0 +1,32 @@
+<?xml version="1.0"?>
+<package format="3">
+  <name>remap_plugin_robot</name>
+  <version>0.0.0</version>
+  <description>reMap robot plugin</description>
+
+  <maintainer email="lorenzo.ferrini@pal-robotics.com">Lorenzo Ferrini</maintainer>
+
+  <license>Apache License 2.0</license>
+
+  <author email="lorenzo.ferrini@pal-robotics.com">Lorenzo Ferrini</author>
+
+  <buildtool_depend>ament_cmake_auto</buildtool_depend>
+  
+  <depend>pluginlib</depend>
+  <depend>rclcpp</depend>
+  <depend>remap_map_handler</depend>
+  <depend>remap_plugin_base</depend>
+  <depend>remap_regions_register</depend>
+  <depend>sensor_msgs</depend>
+  <depend>tf2</depend>
+  <depend>tf2_ros</depend>
+
+  <test_depend>ament_cmake_gmock</test_depend>
+  <test_depend>ament_lint_auto</test_depend>
+  <test_depend>ament_lint_common</test_depend>
+
+  <export>
+    <remap_plugin_base plugin="${prefix}/plugins.xml"/>
+    <build_type>ament_cmake</build_type>
+  </export>
+</package>

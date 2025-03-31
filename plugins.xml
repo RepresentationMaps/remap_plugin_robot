@@ -1,0 +1,5 @@
+<library path="remap_plugin_robot">
+  <class name="PluginRobot" type="remap::plugins::PluginRobot" base_class_type="remap::plugins::PluginBase">
+    <description>A plugin mapping the robot and its FoV in reMap</description>
+  </class>
+</library>
