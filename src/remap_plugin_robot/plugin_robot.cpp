@@ -173,12 +173,12 @@ void PluginRobot::storeEntitiesRelationships(
 
   for (const auto & object : in_fov_entities) {
     if (in_fov_entities_.find(object) == in_fov_entities_.end()) {
-      this->pushFact(object + " isInFoV gaze_robot");
+      this->pushFact(object + " isInFoV gaze_" + robot_name_);
     }
   }
   for (const auto & object : in_fov_entities_) {
     if (in_fov_entities.find(object) == in_fov_entities.end()) {
-      this->removeFact(object + " isInFoV gaze_robot");
+      this->removeFact(object + " isInFoV gaze_" + robot_name_);
     }
   }
 
