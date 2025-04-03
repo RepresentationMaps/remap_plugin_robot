@@ -171,26 +171,36 @@ void PluginRobot::storeEntitiesRelationships(
   auto in_fov_entities = regions_register_->getCoexistentEntities("gaze_" + robot_name_);
   auto presence_entities = regions_register_->getCoexistentEntities(robot_name_);
 
+  std::vector<std::string> new_facts;
+  std::vector<std::string> old_facts;
+
   for (const auto & object : in_fov_entities) {
     if (in_fov_entities_.find(object) == in_fov_entities_.end()) {
-      this->pushFact(object + " isInFoV gaze_" + robot_name_);
+      new_facts.push_back(object + " isInFoV gaze_" + robot_name_);
     }
   }
   for (const auto & object : in_fov_entities_) {
     if (in_fov_entities.find(object) == in_fov_entities.end()) {
-      this->removeFact(object + " isInFoV gaze_" + robot_name_);
+      old_facts.push_back(object + " isInFoV gaze_" + robot_name_);
     }
   }
 
   for (const auto & room : presence_entities) {
     if (presence_entities_.find(room) == presence_entities_.end()) {
-      this->pushFact(robot_name_ + " isIn " + room);
+      new_facts.push_back(robot_name_ + " isIn " + room);
     }
   }
   for (const auto & room : presence_entities_) {
     if (presence_entities.find(room) == presence_entities.end()) {
-      this->removeFact(robot_name_ + " isIn " + room);
+      old_facts.push_back(robot_name_ + " isIn " + room);
     }
+  }
+
+  if (new_facts.size() > 0) {
+    this->revisePushFacts(new_facts);
+  }
+  if (old_facts.size() > 0) {
+    this->reviseRemoveFacts(old_facts);
   }
 
   in_fov_entities_ = in_fov_entities;
