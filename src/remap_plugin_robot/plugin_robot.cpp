@@ -113,7 +113,7 @@ void PluginRobot::initialize()
   robot_presence_frame_ = node_ptr_->get_parameter("plugin/robot/presence_frame").as_string();
   robot_presence_frame_ = node_ptr_->get_parameter("plugin/robot/presence_frame").as_string();
   fixed_frame_ = node_ptr_->get_parameter("fixed_frame").as_string();
-  
+
   this->pushFact(robot_name_ + " rdf:type Robot");
 
   camera_info_sub_ = node_ptr_->create_subscription<sensor_msgs::msg::CameraInfo>(
