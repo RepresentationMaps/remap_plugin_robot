@@ -97,8 +97,6 @@ void PluginRobot::initialize()
   rclcpp::QoS camera_info_qos(1);
   camera_info_qos.best_effort();
 
-  RCLCPP_INFO(node_ptr_->get_logger(), "Storing information");
-
   auto descriptor = rcl_interfaces::msg::ParameterDescriptor{};
 
   descriptor.description = "Robot name";
@@ -115,9 +113,7 @@ void PluginRobot::initialize()
   robot_presence_frame_ = node_ptr_->get_parameter("plugin/robot/presence_frame").as_string();
   robot_presence_frame_ = node_ptr_->get_parameter("plugin/robot/presence_frame").as_string();
   fixed_frame_ = node_ptr_->get_parameter("fixed_frame").as_string();
-
-  RCLCPP_INFO(node_ptr_->get_logger(), "Completed storing information");
-
+  
   this->pushFact(robot_name_ + " rdf:type Robot");
 
   camera_info_sub_ = node_ptr_->create_subscription<sensor_msgs::msg::CameraInfo>(
