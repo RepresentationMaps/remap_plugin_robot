@@ -172,23 +172,23 @@ void PluginRobot::storeEntitiesRelationships(
 
   for (const auto & object : in_fov_entities) {
     if (in_fov_entities_.find(object) == in_fov_entities_.end()) {
-      new_facts.push_back(object + " isInFoV gaze_" + robot_name_);
+      new_facts.push_back(robot_name_ + " oro:sees " + object);
     }
   }
   for (const auto & object : in_fov_entities_) {
     if (in_fov_entities.find(object) == in_fov_entities.end()) {
-      old_facts.push_back(object + " isInFoV gaze_" + robot_name_);
+      old_facts.push_back(robot_name_ + " oro:sees " + object);
     }
   }
 
   for (const auto & room : presence_entities) {
     if (presence_entities_.find(room) == presence_entities_.end()) {
-      new_facts.push_back(robot_name_ + " isIn " + room);
+      new_facts.push_back(robot_name_ + " oro:isIn " + room);
     }
   }
   for (const auto & room : presence_entities_) {
     if (presence_entities.find(room) == presence_entities.end()) {
-      old_facts.push_back(robot_name_ + " isIn " + room);
+      old_facts.push_back(robot_name_ + " oro:isIn " + room);
     }
   }
 
