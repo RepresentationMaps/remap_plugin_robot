@@ -2,8 +2,8 @@
 Changelog for package remap_plugin_robot
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-Forthcoming
------------
+0.2.0 (2025-06-26)
+------------------
 * fixed kb attributes using correct oro ones
 * Contributors: Lorenzo Ferrini
 
